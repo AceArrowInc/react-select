@@ -1427,8 +1427,8 @@ export default class Select extends Component<Props, State> {
 
     if (!this.hasValue() || !controlShouldRenderValue) {
       return inputValue ? null : (
-        <Placeholder 
-          {...commonProps} 
+        <Placeholder
+          {...commonProps}
           key="placeholder"
           isDisabled={isDisabled}
           isFocused={isFocused}
@@ -1606,10 +1606,10 @@ export default class Select extends Component<Props, State> {
       // for performance, the menu options in state aren't changed when the
       // focused option changes so we calculate additional props based on that
       const isFocused = focusedOption === props.data;
-      props.innerRef = isFocused ? this.getFocusedOptionRef : undefined;
+      const innerRef = isFocused ? this.getFocusedOptionRef : undefined;
 
       return (
-        <Option {...commonProps} {...props} isFocused={isFocused}>
+        <Option {...commonProps} {...props} isFocused={isFocused} innerRef={innerRef}>
           {this.formatOptionLabel(props.data, 'menu')}
         </Option>
       );
